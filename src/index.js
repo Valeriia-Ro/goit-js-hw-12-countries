@@ -1,7 +1,10 @@
 
 import countryCardTpl from './fooditem.hbs';
+import list from './list.hbs';
 
 import debounce from 'lodash.debounce';
+
+import errorMessage from './error.js';
 
 import fetchCountries from '../src/fetchCountries.js';
 
@@ -24,6 +27,13 @@ function onSearch (e) {
 
 
 function renderContryCard (country) {
+  if (country.length === 1) {
   const markup = countryCardTpl(country);
   contryBody.innerHTML = markup;
+} else if (country.length >= 10)  {
+  errorMessage();
+} else {
+  const markup = list(country);
+  contryBody.innerHTML = markup;
+}
 }

@@ -1,3 +1,5 @@
+{{#each this}}
+
 <div class="cards">
   <h2 class="card-title">{{name}}</h2>
   <p class="card-text">Capital: {{capital}}</p>
@@ -5,9 +7,14 @@
 
   <p class="card-text">Language: </p>
   <ul class="card-list">
-  {{#each languages}}
-  <li class="card-item"> {{languages.name}}</li>
-  {{/each}}
+    {{#each languages}}
+    <li class="card-item"> {{this.name}}</li>
+    {{/each}}
   </ul>
+  <div class="img">
+    <img class="country-img" src="{{flag}}" alt="{{name}}">
+  </div>
 
 </div>
+
+{{/each }}
